@@ -372,4 +372,10 @@ class Solver(object):
                 accuracy, precision,
                 recall, f_score))
 
+        for kim_point_adjustment_percentile in [0.0, 5.0, 10.0, 100.0]:
+            precision, recall, f1 = get_evaluation_stats_kim(gt, attens_energy, kim_point_adjustment_percentile)
+            print(
+                "Kim percentile : {:0.4f}, Precision : {:0.4f}, Recall : {:0.4f}, F-score : {:0.4f} ".format(
+                    kim_point_adjustment_percentile, precision, recall, f1))
+
         return accuracy, precision, recall, f_score
